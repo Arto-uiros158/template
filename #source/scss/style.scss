@@ -1,12 +1,14 @@
 //<Миксины>==================================================
-$maxWidth: 1280; /* ширина макета */
+$maxWidth: 1280;
+/* ширина макета */
 
 @mixin adaptive-font-size($pcSize, $mobSize) {
-	$addSize: $pcSize - $mobSize;
-	$maxWidth: $maxWidth - 320;
-	font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
-	/* $pcSize - размер шрифта по макету, $mobSize - "ожидаемый" размер шрифта на мобильном (320px) */
+    $addSize: $pcSize - $mobSize;
+    $maxWidth: $maxWidth - 320;
+    font-size: calc(#{$mobSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidth}));
+    /* $pcSize - размер шрифта по макету, $mobSize - "ожидаемый" размер шрифта на мобильном (320px) */
 }
+
 //<Подключаем шрифты>========================================
 
 //<Шрифт по умолчанию>=======================================
@@ -14,7 +16,7 @@ $fontfamily: "";
 //<ПЕРЕМЕННЫЕ для брейкпоинтов>==============================
 $minwidth: 320px;
 $mw: 1170px;
-$md1: $mw + 12px;
+$md1: $mw+12px;
 $md2: 992px;
 $md3: 768px;
 $md4: 480px;
@@ -22,36 +24,41 @@ $md4: 480px;
 @import "nullstyle.scss";
 
 body {
-	color: #000;
-	font-size: 14px;
-	&.lock {
-		overflow: hidden;
-	}
+    color: #fff;
+    background-color: #333;
+    font-size: 14px;
+    &.lock {
+        overflow: hidden;
+    }
 }
+
 //<ОБОЛОЧКА>=================================================
 .wrapper {
-	width: 100%;
-	min-height: 100%;
-	overflow: hidden;
+    width: 100%;
+    min-height: 100%;
+    // overflow: hidden;
 }
+
 //<ОСНОВНАЯ СЕТКА>===========================================
 .container {
-	max-width: $mw;
-	margin: 0 auto;
-	width: 100%;
-	@media (max-width: $md1) {
-		max-width: 970px;
-	}
-	@media (max-width: $md2) {
-		max-width: 750px;
-	}
-	@media (max-width: $md3) {
-		max-width: none;
-		padding: 0 10px;
-	}
+    max-width: $mw;
+    margin: 0 auto;
+    width: 100%;
+
+    @media (max-width: $md1) {
+        max-width: 970px;
+    }
+
+    @media (max-width: $md2) {
+        max-width: 750px;
+    }
+
+    @media (max-width: $md3) {
+        max-width: none;
+        padding: 0 10px;
+    }
 }
 //===========================================================
-
 
 //<ИНТЕРЕСНЫЙ HOVER>=========================================
 // &__link {
@@ -211,4 +218,137 @@ body {
 // 		font-size: 16px;
 // 		line-height: 20px;
 // 	}
+// }
+//<DROP-DOWN MENU>===========================================
+// .menu {
+//     li {
+//         position: relative;
+//     }
+//     &__list {
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         &>li {
+//             margin: 0px 15px 0px 0px;
+//             @media (max-width: $md3) {
+//                 margin: 0px 0px 10px 0px;
+//                 padding: 0px 0px 0px 28px;
+//             }
+//         }
+//         @media (max-width: $md3) {
+//             display: block;
+//         }
+//     }
+//     &__link {
+//         color: #fff;
+//     }
+//     &__arrow {
+//         @media (max-width: $md3) {
+//             left: 0;
+//         }
+//     }
+//     a.parent {
+//         margin: 0px 30px 0px 0px;
+//     }
+// }
+// .sub-menu {
+//     &__list {
+//         display: none;
+//         position: absolute;
+//         padding: 20px 0px 0px 0px;
+//         min-width: 235px;
+//         top: 20px;
+//         left: 0;
+//         &>li {
+//             background-color: #fff;
+//             @media (max-width: $md3) {
+//                 padding: 0px 0px 0px 24px;
+
+//             }
+//         }
+//         &.open {
+//             display: block;
+//         }
+//         @media (max-width: $md3) {
+//             position: relative;
+//             top: 0;
+//             left: 0;
+//         }
+//     }
+//     &__link {
+//         color: #000;
+//         display: inline-block;
+//         padding: 5px 10px;
+//     }
+//     &__arrow.arrow {
+//         right: 7px;
+//         border-left: 10px solid #000;
+//         border-right: none;
+//         border-top: 10px solid transparent;
+//         border-bottom: 10px solid transparent;
+//         @media (max-width: $md3) {
+//             top: 14px;
+//             left: 8px;
+//             border-top: 10px solid #000;
+//             border-bottom: none;
+//             border-left: 10px solid transparent;
+//             border-right: 10px solid transparent;
+//         }
+//     }
+// }
+// .sub-sub-menu {
+//     &__list {
+//         display: none;
+//         position: absolute;
+//         min-width: 250px;
+//         padding: 0px 0px 0px 5px;
+//         top: 0;
+//         left: 100%;
+//         &>li {
+//             background-color: #000;
+//         }
+//         &.open {
+//             display: block;
+//         }
+//         @media (max-width: $md3) {
+//             position: relative;
+//             top: 0;
+//             left: 0;
+//             padding: 0px 5px;
+//         }
+//     }
+//     &__link {
+//         color: #fff;
+//         display: inline-block;
+//         padding: 5px 10px;
+//     }
+// }
+// .arrow {
+//     display: none;
+//     position: absolute;
+//     top: 9px;
+//     right: 0;
+//     width: 0;
+//     height: 0;
+//     border-top: 10px solid #fff;
+//     border-left: 10px solid transparent;
+//     border-right: 10px solid transparent;
+//     transition: all 0.7s ease 0s;
+//     &.active {
+//         transform: rotate(-180deg);
+//     }
+// }
+// body.mouse {
+//     .menu__list>li:hover .sub-menu__list,
+//     .sub-menu__list>li:hover .sub-sub-menu__list {
+//         display: block;
+//     }
+// }
+// body.touchscreen .arrow {
+//     display: block;
+// }
+// @media (max-width: $md3) {
+//     body {
+//         margin: 20px 0px 0px 0px;
+//     }
 // }
